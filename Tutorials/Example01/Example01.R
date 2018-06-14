@@ -1,0 +1,6 @@
+DATA <- read.csv('Example01.csv')
+summary(DATA)
+plot(DATA[,1],DATA[,2])
+plot(DATA[['Temperature']],DATA[['Rate']])
+plot(DATA[,1],DATA[,2],type='l',col='blue',lwd=5)
+cor.test(DATA[,1],DATA[,2])
