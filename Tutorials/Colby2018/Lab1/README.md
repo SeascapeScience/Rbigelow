@@ -20,4 +20,4 @@ http://www.rstudio.com/products/rstudio/download/
 Under “installers” you should see options for Mac and Windows
 
 [!Image]
-https://github.com/SeascapeScience/Rbigelow/blob/master/Tutorials/Colby2018/Lab1/BadFigure.png
+(https://github.com/SeascapeScience/Rbigelow/blob/master/Tutorials/Colby2018/Lab1/BadFigure.png)
