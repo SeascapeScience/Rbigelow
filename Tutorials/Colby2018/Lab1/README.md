@@ -1,4 +1,5 @@
 Lab 1: Data analysis in R: Oceanographic profile
+
 ES 383 September 2018
 
 This lab serves as an introduction to the data analysis, visualization, and interpretation that you will conduct throughout the semester. The tools that are introduced here can be used to graph and analyze data in your labs, data you collect in the field, and data from your independent project. You can use the exercises here as a template for your future analyses.
@@ -17,5 +18,6 @@ This site has options for download for Linux, Mac, and Windows
 2.  Install r-studio  (R interface)
 http://www.rstudio.com/products/rstudio/download/
 Under “installers” you should see options for Mac and Windows
-[!Image]
 
+[!Image]
+https://github.com/SeascapeScience/Rbigelow/blob/master/Tutorials/Colby2018/Lab1/BadFigure.png
