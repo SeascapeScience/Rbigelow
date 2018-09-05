@@ -19,6 +19,6 @@ This site has options for download for Linux, Mac, and Windows
 http://www.rstudio.com/products/rstudio/download/
 Under “installers” you should see options for Mac and Windows
 
-![](BadFigure.png | width="200")
+![]({% static 'BadFigure.png' %} | width="200")
 
 Not working
