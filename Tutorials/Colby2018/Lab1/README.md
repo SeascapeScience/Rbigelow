@@ -17,3 +17,6 @@ This site has options for download for Linux, Mac, and Windows
 2.  Install r-studio  (R interface)
 http://www.rstudio.com/products/rstudio/download/
 Under “installers” you should see options for Mac and Windows
+
+
+(https://github.com/SeascapeScience/Rbigelow/blob/master/Tutorials/Colby2018/Lab1/ExampleFigure.png)
