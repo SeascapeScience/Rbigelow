@@ -19,6 +19,23 @@ This site has options for download for Linux, Mac, and Windows
 http://www.rstudio.com/products/rstudio/download/
 Under “installers” you should see options for Mac and Windows
 
-![]({% static 'BadFigure.png' %} | width="200")
+GRAPHING
+
+Some basic tips on scientific figures
+
+1. Display information as clearly and simply as possible
+2. Label axes (with units in parentheses) and any other critical information
+3. Provide details in the figure caption. Don't restate information that should be clear from the figure. However, sometimes it might be helpful to call out a key feature.
+4. A title above the figure us optional, but usually not needed. 
+5. Font should be an easily readable size
+
+Here's a nice reference:
+
+Rougier, Nicolas P., Michael Droettboom, and Philip E. Bourne. "Ten simple rules for better figures." (2014): PLoS Computational Biology e1003833.
+http://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1003833
+
+Here's an example of what to watch out for:
+
+![](./BadFigure.png?raw=true | width="200")
 
 Not working
