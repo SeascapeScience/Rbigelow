@@ -109,7 +109,9 @@ Depth..M.        Temp..deg.C.    Salinity..PSU.    Density..kg.m.3.
 
 ### ASSIGNMENT (in lab)
 
-1. Lists of arguments that can be used with the plot() command can be found in these resources:
+1. The figure is starting to look better, but still needs work.
+
+   Here is a list of arguments that can be used with the `plot()` command can be found in these resources:  
 
    https://www.rdocumentation.org/packages/graphics/versions/3.5.1/topics/par  
 
@@ -119,8 +121,8 @@ Depth..M.        Temp..deg.C.    Salinity..PSU.    Density..kg.m.3.
 
    Experiment with some of the graphical parameters to improve the quality of the figure. Make as high a quality figure as you can. 
 
-   Write an R script that loads in the data file, plots the profile (as a high quality figure), and saves the figure as a file. 
+   Write an R script that loads in the data file, plots the profile (as a high quality figure), and saves the figure as a file. Email the R script and the image file at the end of the lab.
 
-2.  Use the R script you wrote for question 1 and make minor modifications to plot profiles of the other parameters in this dataset.
+2.  Use the R script you wrote for question 1 and make minor modifications to plot profiles of the other parameters in this dataset. We will discuss the features of the profiles together.
 
 
