@@ -35,9 +35,7 @@ http://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1003833
 
 Here's an example of what to watch out for:
 
-![](https://github.com/SeascapeScience/Rbigelow/blob/master/Tutorials/Colby2018/Lab1/BadFigure.png | width="300")
-
-Not working
+![](https://github.com/SeascapeScience/Rbigelow/blob/master/Tutorials/Colby2018/Lab1/BadFigure.png)
 
 Problems: 	
  - Axes are not labeled.
