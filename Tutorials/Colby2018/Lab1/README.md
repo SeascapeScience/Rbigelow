@@ -1,6 +1,6 @@
-#Lab 1: Data analysis in R: Oceanographic profile
+# Lab 1: Data analysis in R: Oceanographic profile
 
-#ES 383 September 2018
+# ES 383 September 2018
 
 This lab serves as an introduction to the data analysis, visualization, and interpretation that you will conduct throughout the semester. The tools that are introduced here can be used to graph and analyze data in your labs, data you collect in the field, and data from your independent project. You can use the exercises here as a template for your future analyses.
 
@@ -10,7 +10,7 @@ You will use files from sampling done along the Damariscotta Estuary. The data s
 
 It will be most useful to you in the long term to install R and R-studio on your own computer. However, if you prefer, we can set you up to use R-server, so that you can use R through a web browser.
 
-Installing R and R-studio
+**INSTALLING R and R-STUDIO**
 
 1.  Install R program at: http://cran.rstudio.com/
 This site has options for download for Linux, Mac, and Windows
@@ -19,7 +19,7 @@ This site has options for download for Linux, Mac, and Windows
 http://www.rstudio.com/products/rstudio/download/
 Under “installers” you should see options for Mac and Windows
 
-GRAPHING
+**GRAPHING**
 
 Some basic tips on scientific figures
 
