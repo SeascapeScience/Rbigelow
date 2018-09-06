@@ -103,6 +103,8 @@ dev.copy(png,'ExampleFigure.png')
 dev.off()
 ```
 
+![](https://github.com/SeascapeScience/Rbigelow/blob/master/Tutorials/Colby2018/Lab1/ExampleFigure.png)
+
 ### ASSIGNMENT (in lab)
 
 1. Lists of arguments that can be used with the plot() command can be found in these resources:
