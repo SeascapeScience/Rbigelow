@@ -47,7 +47,7 @@ Problems:
 
 **Note**: Using the literature as a guide is very helpful, but be careful: there are lots of bad figures in the literature. If a figure is difficult to follow, it's probably not a good figure. Make a mental note of what is wrong with it so you can avoid that.
 
-### PLOTTING IN R -- AN REFERENCE EXAMPLE
+### PLOTTING IN R -- A REFERENCE EXAMPLE
 
 This is a step-by step quick reference for loading in data and making a basic plot. These commands should work mostly as-is, except for the working directory in step 1. There are lots of details that are brushed over here. Those details are covered in the accompanying presentation.
 
@@ -57,7 +57,7 @@ This is a step-by step quick reference for loading in data and making a basic pl
 
    This is an example. You’ll need to decide where the directory is that you want to work in and use that path inside the quotes.
    
-   _Make sure to download the file_ Lab01example.csv _into this same directory._
+   **_Make sure to download the file_ Lab01example.csv _into this same directory._**
 
    You can also use the commands under the “files” tab in the lower right. 
 
