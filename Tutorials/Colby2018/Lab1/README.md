@@ -9,7 +9,7 @@ You will use files from sampling done along the Damariscotta Estuary. The data s
 
 It will be most useful to you in the long term to install R and R-studio on your own computer. However, if you prefer, we can set you up to use R-server, so that you can use R through a web browser.
 
-**INSTALLING R and R-STUDIO**
+### INSTALLING R and R-STUDIO
 
 1.  Install R program at: http://cran.rstudio.com/
 This site has options for download for Linux, Mac, and Windows
@@ -47,7 +47,7 @@ Problems:
 
 **Note**: Using the literature as a guide is very helpful, but be careful: there are lots of bad figures in the literature. If a figure is difficult to follow, it's probably not a good figure. Make a mental note of what is wrong with it so you can avoid that.
 
-### REFERENCE SHEET – PLOTTING IN R
+### PLOTTING IN R -- AN REFERENCE EXAMPLE
 
 This is a step-by step quick reference for loading in data and making a basic plot. These commands should work mostly as-is, except for the working directory in step 1. There are lots of details that are brushed over here. Those details are covered in the accompanying presentation.
 
@@ -55,11 +55,9 @@ This is a step-by step quick reference for loading in data and making a basic pl
 ```
 setwd('~/Work/Labs/Lab01/')
 ```
-This is an example. You’ll need to decide where the directory is that you want to work in.
-
-You can also use the commands under the “files” tab in the lower right. 
-
-This command, “setwd”, is for “set working directory”. This can be any directory on your computer, but you should think about how you want to organize your data, your labs, etc. For this example, make sure that the file you want to plot is in this directory. 
+   This is an example. You’ll need to decide where the directory is that you want to work in.
+   You can also use the commands under the “files” tab in the lower right. 
+   This command, “setwd”, is for “set working directory”. This can be any directory on your computer, but you should think about how you want to organize your data, your labs, etc. For this example, make sure that the file you want to plot is in this directory. 
 
 2. Load the data you want to plot. Here, the file name is “Lab01example.csv”. The data contained in that file are loaded into a variable called “DATA”. Note: Different file formats will be read in differently. We’ll cover this.
 ```
