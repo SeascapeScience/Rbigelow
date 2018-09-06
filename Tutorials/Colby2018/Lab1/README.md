@@ -55,7 +55,9 @@ This is a step-by step quick reference for loading in data and making a basic pl
 
    ```setwd('~/Work/Labs/Lab01/')```  
 
-   This is an example. You’ll need to decide where the directory is that you want to work in.
+   This is an example. You’ll need to decide where the directory is that you want to work in and use that path inside the quotes.
+   
+   _Make sure to download the file_ Lab01example.csv _into this same directory._
 
    You can also use the commands under the “files” tab in the lower right. 
 
