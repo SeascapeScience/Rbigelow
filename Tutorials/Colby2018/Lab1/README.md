@@ -93,10 +93,30 @@ plot(DATA[['Temp..deg.C.']],-DATA[['Depth..M.']])
 ```
 And finally, here is an example of some of the options to make the figure nicer (note the options for labeling axes (xlab, ylab), setting the axis limits (xlim, ylim) and making it a blue line. There are lots of other options to customize the figure.
 ```
-plot(DATA[['Temp..deg.C.']],-DATA[['Depth..M.']],xlab='Temperature (deg C)',ylab='Depth (m)',xlim=c(10,11.5),ylim=c(-100,0))
+plot(DATA[['Temp..deg.C.']],-DATA[['Depth..M.']],...
+ xlab='Temperature (deg C)',ylab='Depth (m)',...
+ xlim=c(10,11.5),ylim=c(-100,0))
 ```
 5. Save the figure using these two commands:
 ```
 dev.copy(png,'ExampleFigure.png')
 dev.off()
 ```
+
+### ASSIGNMENT (in lab)
+
+1. Lists of arguments that can be used with the plot() command can be found in these resources:
+
+https://www.rdocumentation.org/packages/graphics/versions/3.5.1/topics/par
+
+And a series of plotting example you can run here:
+
+https://www.rdocumentation.org/packages/graphics/versions/3.5.1/topics/plot
+
+Experiment with some of the graphical parameters to improve the quality of the figure. Make as high a quality figure as you can. 
+
+Write an R script that loads in the data file, plots the profile (as a high quality figure), and saves the figure as a file. 
+
+2.  Use the R script you wrote for question 1 and make minor modifications to plot profiles of the other parameters in this dataset.
+
+
