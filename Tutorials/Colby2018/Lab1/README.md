@@ -61,7 +61,7 @@ This is a step-by step quick reference for loading in data and making a basic pl
 
    You can also use the commands under the “files” tab in the lower right. 
 
-   This command, “setwd”, is for “set working directory”. This can be any directory on your computer, but you should think about how you want to organize your data, your labs, etc. For this example, make sure that the file you want to plot is in this directory. 
+   This command, `setwd()`, is for “set working directory”. This can be any directory on your computer, but you should think about how you want to organize your data, your labs, etc. For this example, make sure that the file you want to plot is in this directory. 
 
 2. Load the data you want to plot. Here, the file name is “Lab01example.csv”. The data contained in that file are loaded into a variable called “DATA”. Note: Different file formats will be read in differently. We’ll cover this.
 
