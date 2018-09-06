@@ -52,24 +52,27 @@ Problems:
 This is a step-by step quick reference for loading in data and making a basic plot. These commands should work mostly as-is, except for the working directory in step 1. There are lots of details that are brushed over here. Those details are covered in the accompanying presentation.
 
 1. Launch R-studio and navigate to the directory you want to work in.
-```
-setwd('~/Work/Labs/Lab01/')
-```
+
+   ```setwd('~/Work/Labs/Lab01/')```  
+
    This is an example. You’ll need to decide where the directory is that you want to work in.
+
    You can also use the commands under the “files” tab in the lower right. 
+
    This command, “setwd”, is for “set working directory”. This can be any directory on your computer, but you should think about how you want to organize your data, your labs, etc. For this example, make sure that the file you want to plot is in this directory. 
 
 2. Load the data you want to plot. Here, the file name is “Lab01example.csv”. The data contained in that file are loaded into a variable called “DATA”. Note: Different file formats will be read in differently. We’ll cover this.
-```
-DATA <- read.csv('Lab01example.csv')
-```
-In the command above, we didn’t have to call the variable “DATA”. We could have called it something else, like “STATION_4”, “X”, or “Pinocchio”.
+
+   ```DATA <- read.csv('Lab01example.csv')```  
+
+   In the command above, we didn’t have to call the variable “DATA”. We could have called it something else, like “STATION_4”, “X”, or “Pinocchio”.
 
 3. Look at a summary of what is in this variable.
-```
-summary(DATA)
-```
-Something like this will show on the screen, summarizing the data in “DATA”:
+
+   ```summary(DATA)```  
+   
+   Something like this will show on the screen, summarizing the data in “DATA”:  
+
 ```
 Depth..M.        Temp..deg.C.    Salinity..PSU.    Density..kg.m.3. 
  Min.   :  0.166   Min.   : 8.871   Min.   : 0.8708   Min.   : 0.2984  
@@ -80,24 +83,25 @@ Depth..M.        Temp..deg.C.    Salinity..PSU.    Density..kg.m.3.
  Max.   :101.451   Max.   :11.380   Max.   :33.4619   Max.   :25.7321  
 ```
 4. Make a basic oceanographic profile. To plot temperature (column 2) against depth (column 1):
-```
-plot(DATA[,2],-DATA[,1])
-```
-Another option is to use the column headings instead of the column numbers:
-```
-plot(DATA[['Temp..deg.C.']],-DATA[['Depth..M.']])
-```
-And finally, here is an example of some of the options to make the figure nicer (note the options for labeling axes (xlab, ylab), setting the axis limits (xlim, ylim) and making it a blue line. There are lots of other options to customize the figure.
-```
-plot(DATA[['Temp..deg.C.']],-DATA[['Depth..M.']],...
- xlab='Temperature (deg C)',ylab='Depth (m)',...
- xlim=c(10,11.5),ylim=c(-100,0))
-```
+
+   ```plot(DATA[,2],-DATA[,1])```  
+   
+   Another option is to use the column headings instead of the column numbers:
+
+   ```plot(DATA[['Temp..deg.C.']],-DATA[['Depth..M.']])```  
+   
+   And finally, here is an example of some of the options to make the figure nicer (note the options for labeling axes (xlab, ylab), setting the axis limits (xlim, ylim) and making it a blue line. There are lots of other options to customize the figure.
+   
+   ```
+   plot(DATA[['Temp..deg.C.']],-DATA[['Depth..M.']],...
+    xlab='Temperature (deg C)',ylab='Depth (m)',...
+    xlim=c(10,11.5),ylim=c(-100,0))
+   ```
 5. Save the figure using these two commands:
-```
-dev.copy(png,'ExampleFigure.png')
-dev.off()
-```
+
+   ```dev.copy(png,'ExampleFigure.png')
+   dev.off()
+   ```
 
 ![](https://github.com/SeascapeScience/Rbigelow/blob/master/Tutorials/Colby2018/Lab1/ExampleFigure.png)
 
@@ -105,15 +109,15 @@ dev.off()
 
 1. Lists of arguments that can be used with the plot() command can be found in these resources:
 
-https://www.rdocumentation.org/packages/graphics/versions/3.5.1/topics/par
+   https://www.rdocumentation.org/packages/graphics/versions/3.5.1/topics/par  
 
-And a series of plotting example you can run here:
+   And a series of plotting example you can run here:
 
-https://www.rdocumentation.org/packages/graphics/versions/3.5.1/topics/plot
+   https://www.rdocumentation.org/packages/graphics/versions/3.5.1/topics/plot
 
-Experiment with some of the graphical parameters to improve the quality of the figure. Make as high a quality figure as you can. 
+   Experiment with some of the graphical parameters to improve the quality of the figure. Make as high a quality figure as you can. 
 
-Write an R script that loads in the data file, plots the profile (as a high quality figure), and saves the figure as a file. 
+   Write an R script that loads in the data file, plots the profile (as a high quality figure), and saves the figure as a file. 
 
 2.  Use the R script you wrote for question 1 and make minor modifications to plot profiles of the other parameters in this dataset.
 
