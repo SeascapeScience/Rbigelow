@@ -35,7 +35,7 @@ http://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1003833
 
 Here's an example of what to watch out for:
 
-![](https://github.com/SeascapeScience/Rbigelow/blob/master/Tutorials/Colby2018/Lab1/BadFigure.png)
+![](https://github.com/SeascapeScience/Rbigelow/blob/master/Tutorials/Colby2018/Lab1/BadFigure.png | width="300")
 
 Not working
 
@@ -45,7 +45,7 @@ Problems:
  - What does “Series 1” mean? 
  - The line of data is difficult to follow.
  - One side of the rectangle has no line.
- - Font size is small and difficult to read.
+ - Font is pizelated and difficult to read.
 
 **Note**: Using the literature as a guide is very helpful, but be careful: there are lots of bad figures in the literature. If a figure is difficult to follow, it's probably not a good figure. Make a mental note of what is wrong with it so you can avoid that.
 
