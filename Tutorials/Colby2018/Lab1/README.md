@@ -95,8 +95,8 @@ Depth..M.        Temp..deg.C.    Salinity..PSU.    Density..kg.m.3.
    And finally, here is an example of some of the options to make the figure nicer (note the options for labeling axes (xlab, ylab), setting the axis limits (xlim, ylim) and making it a blue line. There are lots of other options to customize the figure.
    
    ```
-   plot(DATA[['Temp..deg.C.']],-DATA[['Depth..M.']],...
-    xlab='Temperature (deg C)',ylab='Depth (m)',...
+   plot(DATA[['Temp..deg.C.']],-DATA[['Depth..M.']],
+    xlab='Temperature (deg C)',ylab='Depth (m)',
     xlim=c(10,11.5),ylim=c(-100,0))
    ```
 5. Save the figure using these two commands:
