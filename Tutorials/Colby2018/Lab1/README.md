@@ -101,7 +101,8 @@ Depth..M.        Temp..deg.C.    Salinity..PSU.    Density..kg.m.3.
    ```
 5. Save the figure using these two commands:
 
-   ```dev.copy(png,'ExampleFigure.png')
+   ```
+   dev.copy(png,'ExampleFigure.png')
    dev.off()
    ```
 
