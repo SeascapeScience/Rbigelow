@@ -1,1 +1,1 @@
-Foler for lectures / slides / etc.
+# Folder for lectures / slides / etc.
