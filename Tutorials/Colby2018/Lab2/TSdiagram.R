@@ -1,4 +1,4 @@
-TSdiagram <- function(t,S,colvar,colorlabel,xlim=c(30,38),ylim=c(-5,30)){
+TSdiagram <- function(t,S,colvar,colorlabel,xlim=c(30,38),ylim=c(-5,30),clim=c(0,20)){
   # Libraries needed for this function
   library(marelac)
   library(plot3D)
@@ -27,11 +27,12 @@ TSdiagram <- function(t,S,colvar,colorlabel,xlim=c(30,38),ylim=c(-5,30)){
     
     #for colored points
     scatter2D(S, t, colvar = colvar, pch = 20, cex = 1, add = TRUE,
-              colkey=FALSE)
+              colkey=FALSE,clim=clim)
     
     
     #par(opar)
-    colkey(add=TRUE,side=4,dist=-0.045,clim=range(colvar,na.rm = TRUE))
+#    colkey(add=TRUE,side=4,dist=-0.045,clim=range(colvar,na.rm = TRUE))
+    colkey(add=TRUE,side=4,dist=-0.045,clim=clim)
   }
   
   

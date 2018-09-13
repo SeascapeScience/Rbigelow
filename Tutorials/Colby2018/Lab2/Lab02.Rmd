@@ -52,7 +52,10 @@ Scatter plots allow us to quickly understand and visualize relationships.
 library("ggplot2")
 
 ggplot(data = DATA) + 
-  geom_point(mapping = aes(x = Temperature, y = Fluorescence),color="skyblue",shape=18,size=1)
+  geom_point(mapping = aes(x = Temperature, y = Fluorescence),color="skyblue",shape=18,size=1) +
+  xlab('Temperature (deg C)') +
+  ylab('Fluorescence (mg/m^3)') +
+  coord_cartesian(xlim=c(7,18), ylim=c(0,12)) 
 ```
 
 The above is a great visual tool - but how do we define this relationship scientifically and statistically? We'll look at two different techniques, but often scientists tend to use both of these.
@@ -112,7 +115,10 @@ p <- ggplot(data = DATA) +
   geom_point(mapping = aes(x = Temperature, y = Fluorescence), color='skyblue', shape=18,size=1) +
   geom_smooth(mapping = aes(x = Temperature, y = Fluorescence), method = lm, se = FALSE, color='blue') +
   geom_abline(slope=slope,intercept=intercept, size=1, color = "darkblue") +
-  stat_function(fun = function(x) intercept + slope * x, size = 1, color = 'blue')
+  stat_function(fun = function(x) intercept + slope * x, size = 1, color = 'blue') +
+  xlab('Temperature (deg C)') +
+  ylab('Fluorescence (mg/m^3)') +
+  coord_cartesian(xlim=c(7,18), ylim=c(0,12)) 
 
 # let's add the equation to the figure
 p + annotate("text", x = 9, y = 11, label = paste("Temp = ", format(slope, digits=3), "Fluor + ", format(intercept,digits=3), sep=""))
@@ -146,7 +152,10 @@ ggplot(data = DATA) +
   geom_smooth(mapping = aes(x = Temperature, y = Fluorescence, color='line'), method = lm, se = FALSE,size=1.2) +
   stat_function(fun = function(x) p0 + p1 * x + p2 * (x^2), size = 1.2, aes(color = '2nd order')) +
   stat_function(fun = function(x) q0 + q1 * x + q2 * (x^2) + q3 * (x^3), size = 1.2, aes(color = '3rd order')) +
-  scale_colour_manual("",values = c("darkblue", "orange", "blue"))
+  scale_colour_manual("",values = c("darkblue", "orange", "blue")) +
+  xlab('Temperature (deg C)') +
+  ylab('Fluorescence (mg/m^3)') +
+  coord_cartesian(xlim=c(7,18), ylim=c(0,12)) 
 
 ```
 
@@ -218,6 +227,7 @@ install.packages("plot3D")
 source('TSdiagram.R')
 
 #call the function:
+
 TSdiagram(DATA[["Temperature"]],DATA[["Salinity"]]) 
 ```
 
@@ -226,14 +236,22 @@ What we get is a plot of temperature vs salinity, with lines of constant density
 We can also look at how other variables are related to temperature and salinity by plotting the color of the points based on the variable value:
 
 ```{r}
-TSdiagram(DATA[["Temperature"]],DATA[["Salinity"]],DATA[['Fluorescence']],'Fluorescence') 
+TSdiagram(DATA[["Temperature"]],DATA[["Salinity"]],DATA[['Fluorescence']],'Fluorescence (mg m^-3)',clim=c(0,11)) 
 ```
 
 
-# 4. Assignment/Questions/Tasks
+# 4. Assignment
 
-1. Explore the relationship between two other variables (perhaps plotting the logarithm of a variable will be useful). Are the variables correlated? How well does a linear regression represent the relationship?
-2. Try plotting different variables on a T-S diagram. What does this tell you about the different waters sampled on the cruises?
+1. Explore the relationship between two other variables (perhaps plotting the logarithm of a variable will be useful).
+Write a couple of sentences describing the relationship - use the following questions to guide your answer:
+
+      a) Are the variables correlated? 
+
+      b) How well does a linear regression represent the relationship?
+      
+2. Try plotting two more T-S diagrams, each with a different variable represented by the color of the points. Write a couple of sentences describing what these plots tell you about the different waters sampled on the cruises?
+
+**Email me (cmitchell@bigelow.org) your assignment, including the scripts and figures you made.**
 
 
 
