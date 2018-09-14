@@ -95,13 +95,14 @@ Depth..M.        Temp..deg.C.    Salinity..PSU.    Density..kg.m.3.
    And finally, here is an example of some of the options to make the figure nicer (note the options for labeling axes (xlab, ylab), setting the axis limits (xlim, ylim) and making it a blue line. There are lots of other options to customize the figure.
    
    ```
-   plot(DATA[['Temp..deg.C.']],-DATA[['Depth..M.']],...
-    xlab='Temperature (deg C)',ylab='Depth (m)',...
+   plot(DATA[['Temp..deg.C.']],-DATA[['Depth..M.']],
+    xlab='Temperature (deg C)',ylab='Depth (m)',
     xlim=c(10,11.5),ylim=c(-100,0))
    ```
 5. Save the figure using these two commands:
 
-   ```dev.copy(png,'ExampleFigure.png')
+   ```
+   dev.copy(png,'ExampleFigure.png')
    dev.off()
    ```
 
@@ -121,8 +122,8 @@ Depth..M.        Temp..deg.C.    Salinity..PSU.    Density..kg.m.3.
 
    Experiment with some of the graphical parameters to improve the quality of the figure. Make as high a quality figure as you can. 
 
-   Write an R script that loads in the data file, plots the profile (as a high quality figure), and saves the figure as a file. Email the R script and the image file at the end of the lab.
+   Write an R script that loads in the data file, plots the profile (as a high quality figure), and saves the figure as a file. **Email the R script and the image file at the end of the lab.**
 
-2.  Use the R script you wrote for question 1 and make minor modifications to plot profiles of the other parameters in this dataset. We will discuss the features of the profiles together.
+2.  Use the R script you wrote for question 1 and make minor modifications to plot profiles of the other parameters in this dataset. We will discuss the features of the profiles together. **Email the images from all profiles at the end of lab.**
 
 
