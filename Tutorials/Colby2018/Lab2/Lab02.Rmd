@@ -254,7 +254,7 @@ TSdiagram(DATA[["Temperature"]],DATA[["Salinity"]],DATA[['Fluorescence']],'Fluor
       
 2. Try plotting two more T-S diagrams, each with a different variable represented by the color of the points. Write a couple of sentences describing what these plots tell you about the different waters sampled on the cruises.
 
-**Email me (cmitchell@bigelow.org) your assignment, including the scripts and figures you made.**
+**Email me (cmitchell@bigelow.org) your assignment, including the scripts and figures you made. DUE: Monday 17th at 9pm.**
 
 
 
