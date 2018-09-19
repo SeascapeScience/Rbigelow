@@ -81,7 +81,7 @@ CTDdata <- read.csv('Colby_cruise_data_2012-2017.csv')
 dates <- unique(CTDdata[['Date']])
 
 #extracting data for the cruise on September 8th 2016
-cruiseData <- CTDdata[CTDdata[['Date']] == 20160908,]
+cruiseData <- CTDdata[CTDdata[['Date']] == dates[17],]
 ```
 
 We could use the same plotting function as before to plot e.g. Temperature:
@@ -100,7 +100,7 @@ We end up with distinct bands at the deeper depths. This is because of the inter
 
 ## B2. Coding technique: for-loops
 
-When you want to repeat the same bit of code multiple times, a for-loop can be your friend. For example, if you would like to plot a section for each cruise, rather than type out the code for each cruise individually, we can just write it once and iterate or *loop* over the code. 
+When you want to repeat the same bit of code a certain number of times, a for-loop can be your friend. For example, if you would like to plot a section for each cruise, rather than type out the code for each cruise individually, we can just write it once and iterate or *loop* over the code. 
 
 Let's start with a simple example:
 
@@ -130,7 +130,7 @@ To do this plot, we are goint to need to manipulate our data a bit more. We need
 
 ```{r}
 
-#stationLat <- c(43+54.130/60, 43+51.8/60, 43+48.56/60, 43+44.87/60)
+stationLat <- c(43+54.130/60, 43+51.8/60, 43+48.56/60, 43+44.87/60)
 
 #creating an empty matrix with 100 rows (i.e. for 100 depths) and 4 columns (i.e. one for each station)
 TEM <- matrix(NA,nrow = 100, ncol = 4)
@@ -154,10 +154,10 @@ for (st in 1:4){
 Now we've created our matrix, we can plot the temperature section.
 
 ```{r}
-image.plot(x=1:4,y=-100:-1,t(TEM[100:1,4:1]),
+image.plot(x=stationLat[4:1],y=-100:-1,t(TEM[100:1,4:1]),
            zlim=c(8,20),
            col=tim.colors(24),
-           xlab='station',
+           xlab='Latitude (deg N)',
            ylab='Depth (m)',
            main='Cruise 20160908',
            legend.lab='Temperature (C)',
@@ -179,7 +179,7 @@ library("RColorBrewer")
 
 colpal <- colorRampPalette(brewer.pal(9,'YlOrRd'))   # make colors
 
-image.plot(x=1:4,y=-100:-1,t(TEM[100:1,4:1]),
+image.plot(x=stationLat[4:1],y=-100:-1,t(TEM[100:1,4:1]),
            zlim=c(8,20),
            col=colpal(60),
            xlab='Station',
@@ -189,10 +189,55 @@ image.plot(x=1:4,y=-100:-1,t(TEM[100:1,4:1]),
 legend.line=2.5)
 ```
 
+## B4. Coding technique: Functions
 
-# 3. Assignment (in lab)
+Functions are blocks of code which when called, perform a specific task. Usually you give them an input and they give you an output. We've used lots of different R in-built functions e.g. `read.csv`, `image.plot`, etc. We can write our own functions for our own specific tasks.
 
-1. Plot a contour plot for different discrete variables. Can you figure out how to change the color scheme?
+#### Example: write a function which adds two numbers
 
+```{r}
+addition <- function(a,b){
+  return(a+b)
+}
+
+addition(9,3)
+```
+
+Let's write a function which turns a variable from the CTDdata into a matrix (for plotting as a segment). To do this, we'll just copy the code from above and wrap it in a function.
+
+```{r}
+col2matrix <- function(columnName){
+  
+  #creating an empty matrix with 100 rows (i.e. for 100 depths) and 4 columns (i.e. one for each station)
+  TEM <- matrix(NA,nrow = 100, ncol = 4)
+  
+  #looping through each station
+  for (st in 1:4){
+    #looping through each depth interval (from 1m to 100m)
+    for (j in 1:100){
+      #extracting the relevant station from the cruiseData data frame
+      stationData <- cruiseData[cruiseData$Station == st,]
+      
+      #binned temperature value for given depth interval
+      temp = mean(stationData[ceiling(stationData$Depth)==j,columnName]) 
+      
+      #assinging the binned temperature to the j-th row and st-th column of the TEM matrix
+      TEM[j,st] <- temp
+    }
+  }
+  return(TEM)
+}
+
+```
+
+
+
+# Assignment (in lab)
+
+1.  a. Plot a contour plot for different discrete variables (use the `col2matrix` function we just wrote to wrangle your data into the correct format). Can you figure out how to change the color scheme? 
+    b. Try plotting a station-by-depth contour plot for 1 cruise (instead of station-by-cruise)
+    c. Try plotting a depth-by-cruise contour plot for 1 station.
+    d. Try plotting a contour plot of your choice for a different cruise.
 2. Plot an oceanographic section for different variables from the CTD casts. Remember to change the limits of the color scale by adjusting the `zlim` argument to `image.plot`.
+
 
