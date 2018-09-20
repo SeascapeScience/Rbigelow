@@ -238,9 +238,16 @@ col2matrix <- function(columnName){
 
 # Assignment (in lab)
 
-1.  a. Plot a contour plot for different discrete variables (use the `col2matrix` function we just wrote to wrangle your data into the correct format). Can you figure out how to change the color scheme? 
-    b. Try plotting a station-by-depth contour plot for 1 cruise (instead of station-by-cruise)
-    c. Try plotting a depth-by-cruise contour plot for 1 station.
-    d. Try plotting a contour plot of your choice for a different cruise.
-2. Plot an oceanographic section for different variables from the CTD casts. Remember to change the limits of the color scale by adjusting the `zlim` argument to `image.plot`.
+Qs1
+a. Plot a contour plot for different discrete variables. Can you figure out how to change the color scheme? 
+
+b. Try plotting a station-by-depth contour plot for 1 cruise (instead of station-by-cruise)
+
+c. Try plotting a depth-by-cruise contour plot for 1 station.
+
+d. Try plotting a contour plot of your choice for a different cruise.
+
+
+Qs2
+Plot an oceanographic section for different variables from the CTD casts (use the `col2matrix` function we just wrote to wrangle your data into the correct format). Remember to change the limits of the color scale by adjusting the `zlim` argument to `image.plot`.
 
