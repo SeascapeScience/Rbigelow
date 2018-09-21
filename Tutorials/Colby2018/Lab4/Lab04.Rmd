@@ -198,7 +198,10 @@ For your assigned variables & year:
     3. A temporal change plot (depth vs day of year) of the discrete variable *for station 4*
     4. A temporal change plot (depth vs day of year) of the continuous variable *for station 4*
     
-2. Write a couple of paragraphs of a results + discussion section of a paper. Describe the patterns observed in the data from your figures and relate these to the oceanographic processes that could be driving the ecosystem. Try to relate the patterns you observe in your discrete variable to your continuous variable.
+2. Write a couple of paragraphs of a results + discussion section of a paper. This should cover the following:
+    1. How do the variables change with respect to space (vertically/horizontally) and time?
+    2. How do the changes in the two variables relate to each other?
+    3. What ocean processes underly these changes?
 
 
 ### Due Friday 28th at 10pm. Email your write-up and figures (cmitchell@bigelow.org)
