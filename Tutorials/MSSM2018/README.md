@@ -16,5 +16,15 @@
 2. How do the other variables vary with depth? Why do the profiles look the way they do?<BR>
 3. Which variables correlate with each other and why?<BR>
 4. What patterns are there when you add a third variable as a color?<BR>
+<BR>
+<BR>
+	<a href="http://rstudio.bigelow.org/">R Studio Server</a><BR>
+	<BR>
+	Some useful lines of code:<BR>
+	DATA=read.csv('Lab01example.csv')<BR>
+	plot(DATA$Temp..deg.C.,-DATA$Depth..M.)<BR>
+	DATA=read.csv('Colby_cruise_data_2012-2017.csv')<BR>
+	newData=DATA[which(DATA$Month==10),]<BR>
+	plot(newData$Temperature,newData$Depth..m.)<BR>
 	</body>
 </html>
