@@ -21,10 +21,12 @@
 	<a href="http://rstudio.bigelow.org/">R Studio Server</a><BR>
 	<BR>
 	Some useful lines of code:<BR>
+		<font face="courier">
 	DATA=read.csv('Lab01example.csv')<BR>
 	plot(DATA$Temp..deg.C.,-DATA$Depth..M.)<BR>
 	DATA=read.csv('Colby_cruise_data_2012-2017.csv')<BR>
 	newData=DATA[which(DATA$Month==10),]<BR>
 	plot(newData$Temperature,newData$Depth..m.)<BR>
+			</font>
 	</body>
 </html>
