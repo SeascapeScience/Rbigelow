@@ -20,7 +20,7 @@
 <BR>
 	<a href="http://rstudio.bigelow.org/">R Studio Server</a><BR>
 	<BR>
-	Some sample lines of code:<BR>
+	Some sample lines of code to get you started:<BR>
 		<font face="courier"><BR>
 	DATA=read.csv('Lab01example.csv')<BR>
 	plot(DATA$Temp..deg.C.,-DATA$Depth..M.)<BR>
