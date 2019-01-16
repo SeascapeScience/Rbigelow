@@ -20,8 +20,8 @@
 <BR>
 	<a href="http://rstudio.bigelow.org/">R Studio Server</a><BR>
 	<BR>
-	Some useful lines of code:<BR>
-		<font face="courier">
+	Some sample lines of code:<BR>
+		<font face="courier"><BR>
 	DATA=read.csv('Lab01example.csv')<BR>
 	plot(DATA$Temp..deg.C.,-DATA$Depth..M.)<BR>
 	DATA=read.csv('Colby_cruise_data_2012-2017.csv')<BR>
