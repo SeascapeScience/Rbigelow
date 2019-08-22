@@ -1,0 +1,207 @@
+---
+title: "Lab 4: Visualizing 2D patterns in oceanographic cruise data: part 2"
+output: html_notebook
+---
+
+This lab focuses on visualizing  temporal and spatial patterns in oceanographic cruise data with a focus on changes over time. The tools you are introduced to here can be used to graph and analyze data in your labs, your independent research projects and the cruise data gathered throughout the semester. Be sure to save any scripts that you develop so you can continue to use them.
+
+# 1. Importing and wrangling data
+
+Today, we are going to create plots of depth vs time for a given year and station, so we are going to need to wrangle our data into a different form compared to yesterday.
+
+Let's start by importing the data as before.
+
+```{r}
+# read in the whole csv file
+CTDdata <- read.csv('Colby_cruise_data_2012-2017.csv')
+```
+
+Our first big step is to format the dates into a more usable form.
+
+```{r}
+#making a list of the dates of each cruise
+dates <- CTDdata[['Date']]
+
+# making a list of the year
+years <- floor(dates/10000)
+
+# making a list of the months and days in mmdd format
+monthdays <- dates - (years*10000)
+
+# making a list of the months
+mnths <- floor(monthdays/100)
+
+# making a list of the days
+days <- monthdays - (mnths*100)
+
+# converting our dates to R date-times
+Rdates <- ISOdate(years,mnths,days)
+
+# determining the day of year (Julian Day) for each date
+jday <- strftime(Rdates, format = '%j')
+
+# add these to our dataframe
+CTDdata$year <- years
+CTDdata$month <- mnths
+CTDdata$day <- days
+CTDdata$doy <- jday
+```
+
+We just created a day-of-year variable which we are going to use as our x-axis. Depth will be our y-axis. We need to extract from the main `CTDdata` the data for a specific year and station before we can make our plot.
+
+```{r}
+# creating an index based on year
+index <- (years == 2016)
+
+# extracting our chosen year of data from CTDdata
+yearData <- CTDdata[index,]
+
+# extracting the data for our chosen data from yearData
+stationData <- yearData[yearData$Station == 4,]
+
+# making a list of the day of the year each cruise took place on
+doy <- unique(stationData$doy)
+
+#counting how many different days of year (i.e. cruises) we have
+numCols <- length(doy)
+
+#creating an empty matrix with 100 rows (i.e. for 100 depths) and a column for each cruise in this year
+TEM <- matrix(NA,nrow = 100, ncol = numCols)
+
+#looping through each cruise
+for (i in seq_along(doy)){
+  #looping through each depth interval (from 1m to 100m)
+  for (j in 1:100){
+    #extracting the relevant cruise from the stationData data frame
+    cruiseData <- stationData[stationData$doy == doy[i],]
+    
+    #binned temperature value for given depth interval
+    temp = mean(cruiseData[ceiling(cruiseData$Depth)==j,'Temperature']) 
+
+    #assinging the binned temperature to the j-th row and st-th column of the TEM matrix
+    TEM[j,i] <- temp
+  }
+}
+
+
+```
+
+# 2. Plotting temporal changes
+
+We have manipulated our data into a form where we can now plot it. We are going to use the same plotting function as we used yesterday for doing the section plots.
+
+```{r}
+library("fields")
+
+image.plot(x=as.numeric(doy),y=-100:-1,t(TEM[100:1,]),
+           zlim=c(8,20),
+           col=tim.colors(200),
+           xlab='day of year',
+           ylab='Depth (m)',
+           main='Station 4, 2016',
+           legend.lab='Temperature (C)',
+legend.line=2.5)
+```
+
+Let's make this into a couple of funtions so it is easier to make similar plots for different stations or different years:
+
+```{r}
+#function for converting our data into a matrix for a given year and station (yesterday we did this for a given cruise)
+col2matrix_yr_st <- function(CTDdata,yr,st,colName){
+  #making an index based on year (provided by the yr argument)
+  index <- (CTDdata$year == yr)
+  
+  #indexing the CTDdata using the above index
+  yearData <- CTDdata[index,]
+  
+  #indexing the yearData based on the station (provided by the st argument)
+  stationData <- yearData[yearData$Station == st,]
+  
+  #making a list of the day of years (for the x-axis)
+  doy <- unique(stationData$doy)
+  numCols <- length(doy)
+  
+  #creating an empty matrix with 100 rows (i.e. for 100 depths) and a column for each cruise in this year
+  TEM <- matrix(NA,nrow = 100, ncol = numCols)
+  
+  #looping through each cruise
+  for (i in seq_along(doy)){
+    #looping through each depth interval (from 1m to 100m)
+    for (j in 1:100){
+      #extracting the relevant cruise from the stationData data frame
+      cruiseData <- stationData[stationData$doy == doy[i],]
+      
+      #binned temperature value for given depth interval
+      temp = mean(cruiseData[ceiling(cruiseData$Depth)==j,colName]) 
+  
+      #assinging the binned temperature to the j-th row and st-th column of the TEM matrix
+      TEM[j,i] <- temp
+    }
+  }
+  
+  #we can only return one object from a function, but we want to return two... so in this case, we can put the two objects into a list and return the list
+  returnList = list(mat = TEM,doy = doy)
+  return(returnList)
+}
+
+#function to plot
+sectionPlot <- function(x,z,zLims,title,colName){
+  #DESCRIPTION OF ARGUMENTS:
+  #x = x-variable, z = variable to plot in color,
+  #zLims = limits of the colorscale,
+  #title = title to give the figure
+  #colName = label for the colorbar
+  image.plot(x=x,y=-100:-1,t(z[100:1,]),
+             zlim=zLims,
+             col=tim.colors(200),
+             xlab='day of year',
+             ylab='Depth (m)',
+             main=title,
+             legend.lab=colName,
+  legend.line=2.5)
+}
+
+```
+
+Let's try out these functions for a different year:
+
+```{r}
+
+output <- col2matrix_yr_st(CTDdata,2017,4,'Temperature')
+sectionPlot(x=as.numeric(output$doy),z = output$mat, zLims = c(8,20), 
+            title = 'Station4, 2017',colName = 'Temperature (deg C)')
+
+```
+
+Or what about a plot for all the stations in 2016:
+```{r}
+
+for (i in 1:4){
+  output <- col2matrix_yr_st(CTDdata,2016,i,'Temperature')
+  sectionPlot(x=as.numeric(output$doy),z = output$mat, zLims = c(8,20), 
+              title = paste('Station ',i,', 2016', sep=''),colName = 'Temperature (deg C)')
+}
+```
+
+
+
+
+# Assignment
+
+We will assign you each a discrete variable (from the bottle data) and one continous variable (from the CTD profiles) and a year. 
+
+For your assigned variables & year:
+
+1. Plot
+    1. A contour plot (depth vs station) of the discrete variable *for each cruise*
+    2. A section plot (depth vs station) of the continuous variable *for each cruise*
+    3. A temporal change plot (depth vs day of year) of the discrete variable *for station 4*
+    4. A temporal change plot (depth vs day of year) of the continuous variable *for station 4*
+    
+2. Write a couple of paragraphs of a results + discussion section of a paper. This should cover the following:
+    1. How do the variables change with respect to space (vertically/horizontally) and time?
+    2. How do the changes in the two variables relate to each other?
+    3. What ocean processes underly these changes?
+
+
+### Due Friday 28th at 10pm. Email your write-up and figures (cmitchell@bigelow.org)
