@@ -106,7 +106,7 @@ This is a step-by step quick reference for loading in data and making a basic pl
    Something like this will show on the screen, summarizing the data in “DATA”:  
 
    ```
-   Depth..M.        Temp..deg.C.    Salinity..PSU.    Density..kg.m.3. 
+    Depth_m          Temp_deg_C      Salinity_PSU     Density_kg_m3    
     Min.   :  0.166   Min.   : 8.871   Min.   : 0.8708   Min.   : 0.2984  
     1st Qu.: 17.636   1st Qu.:10.526   1st Qu.:32.9609   1st Qu.:25.1233  
     Median : 44.685   Median :10.892   Median :33.2506   Median :25.4006  
@@ -124,13 +124,13 @@ This is a step-by step quick reference for loading in data and making a basic pl
 5. To plot a basic oceanographic profile with ggplot. You can plot temperature (column 2: "Temp..deg.C.") against depth (column 1: "Depth..M.") with ggplot:
 
    ```
-   ggplot(DATA, aes(x=Temp..deg.C., y=-Depth..M.)) + geom_point()
+   ggplot(DATA, aes(x=Temp_deg_C, y=-Depth_m)) + geom_point()
    ```  
    
    And finally, here is an example of some of the options to make the figure nicer (note the functions for labeling axes (xlab(), ylab()), setting the axis limits (xlim(), ylim()). There are lots of other options to customize the figure.
    
    ```
-   ggplot(DATA, aes(x=Temp..deg.C., y=-Depth..M.)) + geom_point() +
+   ggplot(DATA, aes(x=Temp_deg_C, y=-Depth_m)) + geom_point() +
       xlab("Temperature (deg C)") + ylab("Depth (m)") +
       xlim(10,11.5) + ylim(-100, 0)
    ```
