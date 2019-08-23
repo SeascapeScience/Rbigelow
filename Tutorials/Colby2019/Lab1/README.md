@@ -73,54 +73,67 @@ This is a step-by step quick reference for loading in data and making a basic pl
    
 3. Load the data you want to plot. Here, the file name is “Lab01example.csv”. The data contained in that file are loaded into a variable called “DATA”. Note: Different file formats will be read in differently. We’ll cover this.
 
-   ```DATA <- read.csv('Lab01example.csv')```  
+   ```
+   DATA <- read.csv('Lab01example.csv')
+   ```  
 
    In the command above, we didn’t have to call the variable “DATA”. We could have called it something else, like “STATION_4”, “X”, or “Pinocchio”.
 
 4. Look at a summary of what is in this variable.
 
-   ```summary(DATA)```  
+   ```
+   summary(DATA)
+   ```  
    
    Something like this will show on the screen, summarizing the data in “DATA”:  
 
-```
-Depth..M.        Temp..deg.C.    Salinity..PSU.    Density..kg.m.3. 
- Min.   :  0.166   Min.   : 8.871   Min.   : 0.8708   Min.   : 0.2984  
- 1st Qu.: 17.636   1st Qu.:10.526   1st Qu.:32.9609   1st Qu.:25.1233  
- Median : 44.685   Median :10.892   Median :33.2506   Median :25.4006  
- Mean   : 47.196   Mean   :10.857   Mean   :32.3029   Mean   :24.7033  
- 3rd Qu.: 74.919   3rd Qu.:11.271   3rd Qu.:33.4374   3rd Qu.:25.6468  
- Max.   :101.451   Max.   :11.380   Max.   :33.4619   Max.   :25.7321  
-```
+   ```
+   Depth..M.        Temp..deg.C.    Salinity..PSU.    Density..kg.m.3. 
+    Min.   :  0.166   Min.   : 8.871   Min.   : 0.8708   Min.   : 0.2984  
+    1st Qu.: 17.636   1st Qu.:10.526   1st Qu.:32.9609   1st Qu.:25.1233  
+    Median : 44.685   Median :10.892   Median :33.2506   Median :25.4006  
+    Mean   : 47.196   Mean   :10.857   Mean   :32.3029   Mean   :24.7033  
+    3rd Qu.: 74.919   3rd Qu.:11.271   3rd Qu.:33.4374   3rd Qu.:25.6468  
+    Max.   :101.451   Max.   :11.380   Max.   :33.4619   Max.   :25.7321  
+   ```
    You can learn more about “DATA” with these function:
-```
-str(DATA)  #  Compactly display the internal structure of the R object "DATA"
-head(DATA) #  Returns the first parts of the data frame "DATA"
-tail(DATA) #  Returns the last parts of the data frame "DATA"
-```
+   ```
+   str(DATA)  #  Compactly display the internal structure of the R object "DATA"
+   head(DATA) #  Returns the first parts of the data frame "DATA"
+   tail(DATA) #  Returns the last parts of the data frame "DATA"
+   ```
 
-5. Make a basic oceanographic profile. To plot temperature (column 2) against depth (column 1):
+5. To plot a basic oceanographic profile with ggplot. You can plot temperature (column 2: "Temp..deg.C.") against depth (column 1: "Depth..M.") with ggplot:
 
-   ```plot(DATA[,2],-DATA[,1])```  
+   ```
+   ggplot(DATA, aes(x=Temp..deg.C., y=-Depth..M.)) + geom_point()
+   ```  
    
-   Another option is to use the column headings instead of the column numbers:
-
-   ```plot(DATA[['Temp..deg.C.']],-DATA[['Depth..M.']])```  
-   
-   And finally, here is an example of some of the options to make the figure nicer (note the options for labeling axes (xlab, ylab), setting the axis limits (xlim, ylim) and making it a blue line. There are lots of other options to customize the figure.
+   And finally, here is an example of some of the options to make the figure nicer (note the functions for labeling axes (xlab(), ylab()), setting the axis limits (xlim(), ylim()). There are lots of other options to customize the figure.
    
    ```
    plot(DATA[['Temp..deg.C.']],-DATA[['Depth..M.']],
     xlab='Temperature (deg C)',ylab='Depth (m)',
     xlim=c(10,11.5),ylim=c(-100,0))
    ```
+   Note the warning message we received:
+   ```
+   Warning message:
+   Removed 33 rows containing missing values (geom_point).
+   ```
+   That is normal when data in your input data.frame (here “DATA”) are outside the range you are plotting.
+   
 6. Save the figure using these two commands:
 
    ```
    dev.copy(png,'ExampleFigure.png')
    dev.off()
    ```
-
+   You can also use the ggplot function ggsave()
+   ```
+   ggsave('ExampleFigure-ggsave.png')
+   ```
+   
 ![](https://github.com/SeascapeScience/Rbigelow/blob/master/Tutorials/Colby2018/Lab1/ExampleFigure.png)
 
 ### ASSIGNMENT (in lab)
