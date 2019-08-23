@@ -15,8 +15,7 @@ You will use files from sampling done along the Damariscotta Estuary. The data s
 
 Problems: 	
  - Multiple tables.
- - Not filling in zeros.
- - Problematic null values. 
+ - Not filling in zeros or null values. 
  - Formatting to convey information.
  - Merging cells.
  - Problematic field names.
