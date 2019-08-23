@@ -134,7 +134,7 @@ This is a step-by step quick reference for loading in data and making a basic pl
    ggsave('ExampleFigure-ggsave.png')
    ```
    
-![](https://github.com/SeascapeScience/Rbigelow/blob/master/Tutorials/Colby2018/Lab1/ExampleFigure.png)
+![](https://github.com/nmayot/Rbigelow/blob/nico-updates/Tutorials/Colby2019/Lab1/ExampleFigure-ggsave.png)
 
 ### ASSIGNMENT (in lab)
 
