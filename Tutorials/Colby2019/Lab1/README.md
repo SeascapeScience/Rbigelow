@@ -63,13 +63,21 @@ This is a step-by step quick reference for loading in data and making a basic pl
 
    This command, `setwd()`, is for “set working directory”. This can be any directory on your computer, but you should think about how you want to organize your data, your labs, etc. For this example, make sure that the file you want to plot is in this directory. 
 
-2. Load the data you want to plot. Here, the file name is “Lab01example.csv”. The data contained in that file are loaded into a variable called “DATA”. Note: Different file formats will be read in differently. We’ll cover this.
+2. Install and load the ggplot2 package by running this code:
+
+   ```
+   install.packages("ggplot2")
+   library("ggplot2")
+   ```
+   You only need to install a package once, but you need to reload it every time you start a new session.
+   
+3. Load the data you want to plot. Here, the file name is “Lab01example.csv”. The data contained in that file are loaded into a variable called “DATA”. Note: Different file formats will be read in differently. We’ll cover this.
 
    ```DATA <- read.csv('Lab01example.csv')```  
 
    In the command above, we didn’t have to call the variable “DATA”. We could have called it something else, like “STATION_4”, “X”, or “Pinocchio”.
 
-3. Look at a summary of what is in this variable.
+4. Look at a summary of what is in this variable.
 
    ```summary(DATA)```  
    
@@ -84,7 +92,14 @@ Depth..M.        Temp..deg.C.    Salinity..PSU.    Density..kg.m.3.
  3rd Qu.: 74.919   3rd Qu.:11.271   3rd Qu.:33.4374   3rd Qu.:25.6468  
  Max.   :101.451   Max.   :11.380   Max.   :33.4619   Max.   :25.7321  
 ```
-4. Make a basic oceanographic profile. To plot temperature (column 2) against depth (column 1):
+   You can learn more about “DATA” with these function:
+```
+str(DATA)  #  Compactly display the internal structure of the R object "DATA"
+head(DATA) #  Returns the first parts of the data frame "DATA"
+tail(DATA) #  Returns the last parts of the data frame "DATA"
+```
+
+5. Make a basic oceanographic profile. To plot temperature (column 2) against depth (column 1):
 
    ```plot(DATA[,2],-DATA[,1])```  
    
@@ -99,7 +114,7 @@ Depth..M.        Temp..deg.C.    Salinity..PSU.    Density..kg.m.3.
     xlab='Temperature (deg C)',ylab='Depth (m)',
     xlim=c(10,11.5),ylim=c(-100,0))
    ```
-5. Save the figure using these two commands:
+6. Save the figure using these two commands:
 
    ```
    dev.copy(png,'ExampleFigure.png')
