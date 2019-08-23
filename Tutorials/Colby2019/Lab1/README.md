@@ -112,9 +112,9 @@ This is a step-by step quick reference for loading in data and making a basic pl
    And finally, here is an example of some of the options to make the figure nicer (note the functions for labeling axes (xlab(), ylab()), setting the axis limits (xlim(), ylim()). There are lots of other options to customize the figure.
    
    ```
-   plot(DATA[['Temp..deg.C.']],-DATA[['Depth..M.']],
-    xlab='Temperature (deg C)',ylab='Depth (m)',
-    xlim=c(10,11.5),ylim=c(-100,0))
+   ggplot(DATA, aes(x=Temp..deg.C., y=-Depth..M.)) + geom_point() +
+      xlab("Temperature (deg C)") + ylab("Depth (m)") +
+      xlim(10,11.5) + ylim(-100, 0)
    ```
    Note the warning message we received:
    ```
@@ -140,7 +140,7 @@ This is a step-by step quick reference for loading in data and making a basic pl
 
 1. The figure is starting to look better, but still needs work.
 
-   Here is a list of arguments that can be used with the `plot()` command can be found in these resources:  
+   Here is a list of arguments that can be used with the `ggplot()` command can be found in these resources:  
 
    https://www.rdocumentation.org/packages/graphics/versions/3.5.1/topics/par  
 
