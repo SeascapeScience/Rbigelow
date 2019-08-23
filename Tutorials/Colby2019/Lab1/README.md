@@ -166,7 +166,7 @@ This is a step-by step quick reference for loading in data and making a basic pl
    
 1. The figure is starting to look better, but still needs work. In this dataset "DATA", notice the column "Cast" with its two levels "ascent" and "descent", and that the maximum depth (101 m) occurred at the line 332. This is because data were recorded during the CTD/rosette's descent (the “down cast”), as well as during its ascent (the “up cast”).
    
-   Experiment with some of the ggplot functions to improve the quality and make as high a quality figure as you can. The "ascent" and "descent" profile need to be in two different colors. For this you will need to use at least: `geom_line()` and `coord_flip`.
+   Experiment with some of the ggplot functions to improve the quality and make as high a quality figure as you can. The "ascent" and "descent" profile need to be in two different colors. For this you will need to use at least: `geom_line()` and `coord_flip()`.
 
    Write an R script that loads in the data file, plots the profile (as a high quality figure), and saves the figure as a file. **Email the R script and the image file at the end of the lab.**
 
