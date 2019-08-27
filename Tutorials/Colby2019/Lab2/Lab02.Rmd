@@ -71,7 +71,7 @@ How is correlation defined in a mathematical sense? Using *correlation coefficie
 
 Correlation coefficiants can be used to evaluate the direction and the intensity of the relationship between two variables. There are a range of different correlation coefficients, but the most common of these is the *Pearson correlation coefficient*. The Pearson correlation coefficient, often referred to as simply the correlation coefficient, is given the symbol $r$ and describes the linear correlation between two variables. It takes a value between -1 and 1. The sign of the correlation coefficient describes the direction of the correlation e.g. a positive $r$ indicates a positive relationship between the variables. A value of 0 indicates no linear correlation and values further from 0 in either direction (closer to -1 and 1) indicate stronger linear correlations.  See the image below for examples.
 
-<img src="https://github.com/nmayot/Rbigelow/blob/nico-updates/Tutorials/Colby2019/Lab2/Correlation_examples.png"
+<img src="Correlation_examples.png">
 
 
 #### Example: What is the correlation coefficient between chlorophyll fluorescence and temperature?
