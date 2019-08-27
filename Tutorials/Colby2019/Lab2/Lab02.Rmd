@@ -49,7 +49,9 @@ Scatter plots allow us to quickly understand and visualize relationships.
 
 ```{r, fig.height = 5, fig.width=5}
 library("ggplot2")
-
+ 
+ 1 + 1
+ 
 ggplot(data = DATA) + 
   geom_point(mapping = aes(x = Temperature, y = Fluorescence)) +
   xlab('Temperature (deg C)') +
