@@ -1,5 +1,5 @@
 ---
-title: "Lab02-nico"
+title: "Lab02"
 output: html_document
 ---
 
@@ -21,7 +21,7 @@ You should be left with a rectangular block of numbers, with the first row as "h
 Let's read in the data:
 
 ```{r}
-DATA<- read.csv("Colby_cruise_data_2012-2017-nico.csv", header=TRUE)
+DATA<- read.csv("Colby_cruise_data_2012-2017.csv", header=TRUE)
 
 ```
 
@@ -49,9 +49,7 @@ Scatter plots allow us to quickly understand and visualize relationships.
 
 ```{r, fig.height = 5, fig.width=5}
 library("ggplot2")
- 
- 1 + 1
- 
+
 ggplot(data = DATA) + 
   geom_point(mapping = aes(x = Temperature, y = Fluorescence)) +
   xlab('Temperature (deg C)') +
@@ -73,7 +71,7 @@ How is correlation defined in a mathematical sense? Using *correlation coefficie
 
 Correlation coefficiants can be used to evaluate the direction and the intensity of the relationship between two variables. There are a range of different correlation coefficients, but the most common of these is the *Pearson correlation coefficient*. The Pearson correlation coefficient, often referred to as simply the correlation coefficient, is given the symbol $r$ and describes the linear correlation between two variables. It takes a value between -1 and 1. The sign of the correlation coefficient describes the direction of the correlation e.g. a positive $r$ indicates a positive relationship between the variables. A value of 0 indicates no linear correlation and values further from 0 in either direction (closer to -1 and 1) indicate stronger linear correlations.  See the image below for examples.
 
-<img src="C:/Users/nmayot/Documents/PostDoc/teaching supervise/Colby 2019/Rbigelow/Tutorials/Colby2019/Lab2/Correlation_examples.png"
+<img src="https://github.com/nmayot/Rbigelow/blob/nico-updates/Tutorials/Colby2019/Lab2/Correlation_examples.png"
 
 
 #### Example: What is the correlation coefficient between chlorophyll fluorescence and temperature?
