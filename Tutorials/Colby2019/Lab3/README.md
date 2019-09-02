@@ -1,4 +1,4 @@
-# Lab 2: Visualizing 2D patterns in oceanographic cruise data
+# Lab 3: Visualizing 2D patterns in oceanographic cruise data
 
 To view the lab script use the following link: 
 
