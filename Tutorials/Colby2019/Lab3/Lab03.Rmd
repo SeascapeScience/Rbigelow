@@ -265,7 +265,9 @@ ggplot(CTD.li, aes(x=Latitude, y=Depth)) +
   scale_fill_distiller(palette="Reds", direction=1,breaks = 11:17)
 ```
 
-In oceanography, lot of researchers are using the Ocean Data View ([ODV](https://odv.awi.de)) software to do that kind of job. It is a free software for the interactive exploration, analysis and visualization of oceanographic data. Below is an example with our data:
+##### **Side note about Ocean Data View (ODV)**
+
+In oceanography, many researchers are using the Ocean Data View ([ODV](https://odv.awi.de)) software to do that kind of plots. It is a free software for the interactive exploration, analysis and visualization of oceanographic data. Below is an example with our data:
 
 <img src="ODV_example.png">
 
