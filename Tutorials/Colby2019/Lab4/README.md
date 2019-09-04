@@ -1,3 +1,5 @@
-To view this lab script click on the following link:
+# Lab 4: Visualizing 2D patterns in oceanographic cruise data: part 2
 
-http://htmlpreview.github.io/?https://github.com/SeascapeScience/Rbigelow/blob/master/Tutorials/Colby2018/Lab4/Lab04.html
+To view the lab script use the following link:
+
+http://htmlpreview.github.io/?https://github.com/nmayot/Rbigelow/blob/nico-updates/Tutorials/Colby2019/Lab4/Lab04.html

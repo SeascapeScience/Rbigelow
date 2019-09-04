@@ -165,10 +165,13 @@ This is a step-by step quick reference for loading in data and making a basic pl
    
 1. The figure is starting to look better, but still needs work. In this dataset "DATA", notice the column "Cast" with its two levels "ascent" and "descent", and that the maximum depth (101 m) occurred at the line 332. This is because data were recorded during the CTD/rosette's descent (the “down cast”), as well as during its ascent (the “up cast”).
    
-   Experiment with some of the ggplot functions to improve the quality and make as high a quality figure as you can. The "ascent" and "descent" profile need to be in two different colors. For this you will need to use at least: `geom_line()` and `coord_flip()`.
+   Experiment with some of the ggplot functions to improve the quality and make as high a quality figure as you can. The "ascent" and "descent" profile need to be in two different colors. For this, you have to use at least: `geom_line()` and `coord_flip()`.
 
    Write an R script that loads in the data file, plots the profile (as a high quality figure), and saves the figure as a file. **Email the R script and the image file at the end of the lab.**
 
 2.  Use the R script you wrote for question 1 and make minor modifications to plot profiles of the other parameters in this dataset. We will discuss the features of the profiles together. **Email the images from all profiles at the end of lab.**
 
 
+### Discussion (altogether in lab)
+
+Let's use the [Tuva Tools](https://tuvalabs.com/upload/d/6d6f9a7d9a2d49e9b504ea20a3fbd16e/).
