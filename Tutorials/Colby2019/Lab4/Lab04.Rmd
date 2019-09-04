@@ -88,20 +88,35 @@ We have manipulated our data into a form where we can now plot it. We are going 
 
 ```{r}
 library("ggplot2")
+library("akima")
 
 # Create the data frame
 tem <- as.vector(TEM) # Temperature
 jda <- as.vector(t(matrix(alljday,ncol=100,nrow=length(alljday))))  # Station number
 dep <- as.vector(matrix(1:100,ncol=length(alljday),nrow=100))   # Depth
-CTD <- data.frame(JulianDay=jda, Depth=dep, Temperature=tem) 
+CTD <- data.frame(JulianDay=jda, Depth=dep, Temperature=tem)
+
+# Remove NA values
+x <- jda[!is.na(tem)]
+y <- dep[!is.na(tem)]
+z <- tem[!is.na(tem)]
+  
+# bivariate linear interpolation
+CTD.li <- interp(x, y, z)
+
+# Prepare the data frame for ggplot()
+CTD.li$Temperature <- as.vector(CTD.li$z)
+CTD.li$JulianDay <- as.vector(matrix(CTD.li$x,ncol=ncol(CTD.li$z),nrow=nrow(CTD.li$z)))
+CTD.li$Depth <- as.vector(t(matrix(CTD.li$y,ncol=ncol(CTD.li$z),nrow=nrow(CTD.li$z))))
+CTD.li <- as.data.frame(CTD.li)
 
 # 2D plot
-ggplot(CTD, aes(x=JulianDay, y=Depth)) +
-  geom_tile(aes(fill=Temperature)) +
-  geom_contour(aes(z = Temperature),color="white") +
-  scale_y_reverse() +
-  scale_fill_continuous(limits = c(8,18)) +
-  labs(y="Depth (m)", fill="Temperature (deg C)")
+ggplot() +
+  geom_tile(data = CTD.li, aes(x=JulianDay, y=Depth, fill=Temperature)) +
+  geom_contour(data = CTD.li, aes(x=JulianDay, y=Depth, z = Temperature),color="white") +
+  geom_point(data = subset(CTD, !is.na(Temperature)), aes(x=JulianDay, y=Depth),color="black") +
+  scale_y_reverse() + scale_fill_continuous(limits=c(8,18)) +
+  labs(y="Depth (m)", fill="Temperature (deg C)", title ="Station 4, 2016")
 ```
 
 ## B2. Coding technique: Functions
@@ -121,6 +136,10 @@ addition(9,3)
 As shown in this image below, an essential feature of functions is that the variables used within are local. This means that their scope lies within -and is limited to- the function itself and are therefore invisible outside the function body.
 
 <img src="function_R_scoping.png">
+
+
+
+#### Our functions for plotting 2D graphics:
 
 Let's write two functions: the first one to turn a variable from the `CTDdata` data frame into a matrix, and the second one to plot this variable over time at one station. To do this, we'll just copy the code from above and wrap it in a function.
 
@@ -169,7 +188,6 @@ col2matrix_yr_st <- function(dataset,yr,st,colName){
 }
 ```
 ```{r}
-library("akima")
 sectionPlot <- function(x,z,zLims,figName,clbName){
   # DESCRIPTION OF ARGUMENTS:
   # -----  x = x-variable, z = variable to plot in color,
@@ -217,7 +235,7 @@ T2017st4 <- sectionPlot(output$alljday, output$mat, c(8,18), "Station 4, 2017", 
 T2017st4
 ```
 
-Or what about a plot for all the stations in 2016:
+What about a plot for all the stations in 2016:
 ```{r, fig.width=15, warning=FALSE}
 library(gridExtra)
 
@@ -230,3 +248,23 @@ for (i in 1:4){
 }
 grid.arrange(p1,p2,p3,p4, ncol=2)
 ```
+
+# Assignment
+
+We will assign you each a discrete variable (from the bottle data) and one continous variable (from the CTD profiles) and a year. 
+
+For your assigned variables & year:
+
+1. Plot
+    1. A contour plot (depth vs station) of the discrete variable *for each cruise*
+    2. A section plot (depth vs station) of the continuous variable *for each cruise*
+    3. A temporal change plot (depth vs day of year) of the discrete variable *for station 4*
+    4. A temporal change plot (depth vs day of year) of the continuous variable *for station 4*
+    
+2. Write a couple of paragraphs of a results + discussion section of a paper. This should cover the following:
+    1. How do the variables change with respect to space (vertically/horizontally) and time?
+    2. How do the changes in the two variables relate to each other?
+    3. What ocean processes underly these changes?
+
+
+### Due XXX XXth at XXpm. Email your write-up and figures (nmayot@bigelow.org)
