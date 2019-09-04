@@ -1,5 +1,5 @@
 ---
-title: "Lab 3: Visualizing 2D patterns in oceanographic cruise data"
+title: "Lab 3: Visualizing 2D patterns in oceanographic cruise data: part 1"
 output: html_document
 ---
 
@@ -257,9 +257,10 @@ CTD.li$Latitude <- as.vector(matrix(CTD.li$x,ncol=40,nrow=40))
 CTD.li$Depth <- as.vector(t(matrix(CTD.li$y,ncol=40,nrow=40)))
 CTD.li <- as.data.frame(CTD.li)
 
-ggplot(CTD.li, aes(x=Latitude, y=Depth)) +
-  geom_tile(aes(fill=Temperature)) +
-  geom_contour(aes(z = Temperature),breaks = 11:17,color="white") +
+ggplot() +
+  geom_tile(data = CTD.li, aes(x=Latitude, y=Depth, fill=Temperature)) +
+  geom_contour(data = CTD.li, aes(x=Latitude, y=Depth, z = Temperature),breaks = 11:17,color="white") +
+  geom_point(data = subset(CTD, !is.na(Temperature)), aes(x=Latitude, y=Depth),color="black") +
   scale_y_reverse() +
   labs(y="Depth (m)", fill="Temperature (deg C)") +
   scale_fill_distiller(palette="Reds", direction=1,breaks = 11:17)
