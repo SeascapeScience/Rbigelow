@@ -172,6 +172,6 @@ This is a step-by step quick reference for loading in data and making a basic pl
 2.  Use the R script you wrote for question 1 and make minor modifications to plot profiles of the other parameters in this dataset. We will discuss the features of the profiles together. **Email the images from all profiles at the end of lab.**
 
 
-### Discussion (altogether in lab)
+### DISCUSSION (altogether in lab)
 
 Let's use the [Tuva Tools](https://tuvalabs.com/upload/d/6d6f9a7d9a2d49e9b504ea20a3fbd16e/).
