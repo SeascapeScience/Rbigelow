@@ -5,7 +5,17 @@ This lab serves as an introduction to the data organization, data analysis, visu
 
 Moreover, this lab provides experience in writing code — a skill that is becoming increasingly relevant in almost every field.
 
-You will use files from sampling done along the Damariscotta Estuary. The data set used here is:	Lab01example.csv – CTD data from the deep station
+### INSTALLING R and R-STUDIO
+
+It will be most useful to you in the long term to install R and R-studio on your own computer.
+
+1.  Install R program at: http://cran.rstudio.com/
+This site has options for download for Linux, Mac, and Windows
+ 
+2.  Install r-studio  (R interface)
+http://www.rstudio.com/products/rstudio/download/
+Under “installers” you should see options for Mac and Windows
+
 
 ### DATA ORGANIZATION
 
@@ -23,17 +33,6 @@ Problems:
  - Need to store data in a universal, open, and static format, for example, .CSV (comma separated values)
 
 Good data organization is the foundation of your research project!
-
-### INSTALLING R and R-STUDIO
-
-It will be most useful to you in the long term to install R and R-studio on your own computer.
-
-1.  Install R program at: http://cran.rstudio.com/
-This site has options for download for Linux, Mac, and Windows
- 
-2.  Install r-studio  (R interface)
-http://www.rstudio.com/products/rstudio/download/
-Under “installers” you should see options for Mac and Windows
 
 ### GRAPHING
 
@@ -65,6 +64,8 @@ Problems:
 **Note**: Using the literature as a guide is very helpful, but be careful: there are lots of bad figures in the literature. If a figure is difficult to follow, it's probably not a good figure. Make a mental note of what is wrong with it so you can avoid that.
 
 ### PLOTTING A PROFILE IN R -- A REFERENCE EXAMPLE
+
+You will use files from sampling done along the Damariscotta Estuary. The data set used here is:	Lab01example.csv – CTD data from the deep station
 
 This is a step-by step quick reference for loading in data and making a basic plot. These commands should work mostly as-is, except for the working directory in step 1. There are lots of details that are brushed over here. Those details are covered in the accompanying presentation.
 
