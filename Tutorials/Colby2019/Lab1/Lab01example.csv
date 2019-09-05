@@ -1,4 +1,4 @@
-Depth (M),Temp (deg C),Salinity (PSU),Density (kg/m^3),PAR/Irradiance,Fluorescence (mg/m^3),Turbidity (NTU),Beam Attenuation,Oxygen (umol/kg),Oxygen (% sat),Profile
+Depth_m,Temp_deg_C,Salinity_PSU,Density_kg_m3,PAR_Irradiance,Fluorescence_mg_m3,Turbidity_NTU,Beam_Attenuation,Oxygen_umol_kg,Oxygen_perc_sat,Cast
 1.092,11.2509,32.8428,25.0514,9.40E+02,0.6973,0.2675,0.8422,197.982,72.912,descent 
 1.19,11.2501,32.8462,25.0541,1.08E+03,0.7088,0.2453,0.8378,209.816,77.27,descent 
 1.345,11.252,32.8457,25.0534,5.71E+02,0.708,0.2457,0.8404,222.44,81.922,descent 
