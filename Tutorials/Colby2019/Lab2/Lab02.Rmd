@@ -73,8 +73,13 @@ Correlation coefficiants can be used to evaluate the direction and the intensity
 
 <img src="Correlation_examples.png">
 
+#### Example 1: The game "Guess the Correlation"
 
-#### Example: What is the correlation coefficient between chlorophyll fluorescence and temperature?
+Try this game: [Guess the Correlation](http://guessthecorrelation.com/)
+
+In this game, players are presented with a stream of scatter plots depicting the relationship between two random variables. The aim is to guess the true Pearson correlation coefficient. Guesses over 0.10 are not awarded any points and a life is deducted.
+
+#### Example 2: What is the correlation coefficient between chlorophyll fluorescence and temperature?
 
 ```{r}
 # create variables for our two parameters of interest
