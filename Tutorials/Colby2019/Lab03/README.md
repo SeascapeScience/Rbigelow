@@ -2,4 +2,4 @@
 
 To view the lab script use the following link: 
 
-http://htmlpreview.github.io/?https://github.com/nmayot/Rbigelow/blob/nico-updates/Tutorials/Colby2019/Lab3/Lab03.html
+http://htmlpreview.github.io/?https://github.com/SeascapeScience/Rbigelow/blob/master/Tutorials/Colby2019/Lab03/Lab03.html
