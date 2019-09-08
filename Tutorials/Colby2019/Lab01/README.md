@@ -21,7 +21,7 @@ Under “installers” you should see options for Mac and Windows
 
 1. Open the file "Lab01example_messy.xls" with Excel. We want to open this file with R. What are the issues within this spreadsheet that could confuse R?
 
-<img src="https://github.com/nmayot/Rbigelow/blob/nico-updates/Tutorials/Colby2019/Lab1/Example-table-messy.png">
+<img src="https://github.com/SeascapeScience/Rbigelow/blob/master/Tutorials/Colby2019/Lab01/Example-table-messy.png">
 
 Problems: 	
  - Multiple tables.
