@@ -41,7 +41,7 @@ Some basic tips on scientific figures
 1. Display information as clearly and simply as possible
 2. Label axes (with units in parentheses) and any other critical information
 3. Provide details in the figure caption. Don't restate information that should be clear from the figure. However, sometimes it might be helpful to call out a key feature.
-4. A title above the figure us optional, but usually not needed. 
+4. A title above the figure is optional, but usually not needed. 
 5. Font should be an easily readable size
 
 Here's a nice reference:
