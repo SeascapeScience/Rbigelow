@@ -51,7 +51,7 @@ http://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1003833
 
 Here's an example of what to watch out for:
 
-<img src="https://github.com/SeascapeScience/Rbigelow/blob/master/Tutorials/Colby2018/Lab1/BadFigure.png" width="500">
+<img src="https://github.com/SeascapeScience/Rbigelow/blob/master/Tutorials/Colby2019/Lab1/BadFigure.png" width="500">
 
 Problems: 	
  - Axes are not labeled.
@@ -152,7 +152,7 @@ This is a step-by step quick reference for loading in data and making a basic pl
    ggsave('ExampleFigure-ggsave.png')
    ```
    
-<img src="https://github.com/nmayot/Rbigelow/blob/nico-updates/Tutorials/Colby2019/Lab1/ExampleFigure-ggsave.png" width="350" height="350">
+<img src="https://github.com/SeascapeScience/Rbigelow/blob/master/Tutorials/Colby2019/Lab01/ExampleFigure-ggsave.png" width="350" height="350">
 
 ### ASSIGNMENT (in lab)
 
