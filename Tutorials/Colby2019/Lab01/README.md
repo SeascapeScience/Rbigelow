@@ -51,7 +51,7 @@ http://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1003833
 
 Here's an example of what to watch out for:
 
-<img src="https://github.com/SeascapeScience/Rbigelow/blob/master/Tutorials/Colby2019/Lab1/BadFigure.png" width="500">
+<img src="https://github.com/SeascapeScience/Rbigelow/blob/master/Tutorials/Colby2019/Lab01/BadFigure.png" width="500">
 
 Problems: 	
  - Axes are not labeled.
