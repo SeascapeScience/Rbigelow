@@ -175,4 +175,4 @@ This is a step-by step quick reference for loading in data and making a basic pl
 
 ### DISCUSSION (altogether in lab)
 
-Let's use the [Tuva Tools](https://tuvalabs.com/upload/d/6d6f9a7d9a2d49e9b504ea20a3fbd16e/).
+Let's use the [Tuva Tools](https://tuvalabs.com/nmayot/datasets/6d6f9a7d9a2d49e9b504ea20a3fbd16e/).
