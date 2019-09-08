@@ -121,7 +121,7 @@ This is a step-by step quick reference for loading in data and making a basic pl
    tail(DATA) #  Returns the last parts of the data frame "DATA"
    ```
 
-5. To plot a basic oceanographic profile with ggplot. You can plot temperature (column 2: "Temp..deg.C.") against depth (column 1: "Depth..M.") with ggplot:
+5. To plot a basic oceanographic profile with ggplot. You can plot temperature (column 2: "Temp_deg_C.") against depth (column 1: "Depth_M") with ggplot:
 
    ```
    ggplot(DATA, aes(x=Temp_deg_C, y=-Depth_m)) + geom_point()
