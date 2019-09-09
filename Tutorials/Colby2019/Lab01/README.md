@@ -168,9 +168,9 @@ This is a step-by step quick reference for loading in data and making a basic pl
    
    Experiment with some of the ggplot functions to improve the quality and make as high a quality figure as you can. The "ascent" and "descent" profile need to be in two different colors. For this, you have to use at least: `geom_line()` and `coord_flip()`.
 
-   Write an R script that loads in the data file, plots the profile (as a high quality figure), and saves the figure as a file. **Email the R script and the image file at the end of the lab.**
+   Write an R script that loads in the data file, plots the profile (as a high quality figure), and saves the figure as a file. **Email the R script and the image file at the end of the lab. (nmayot@bigelow.org)**
 
-2.  Use the R script you wrote for question 1 and make minor modifications to plot profiles of the other parameters in this dataset. We will discuss the features of the profiles together. **Email the images from all profiles at the end of lab.**
+2.  Use the R script you wrote for question 1 and make minor modifications to plot profiles of the other parameters in this dataset. We will discuss the features of the profiles together. **Email the images from all profiles at the end of lab. (nmayot@bigelow.org)**
 
 
 ### DISCUSSION (altogether in lab)
