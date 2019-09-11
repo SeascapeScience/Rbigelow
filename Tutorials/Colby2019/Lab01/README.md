@@ -51,7 +51,7 @@ http://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1003833
 
 Here's an example of what to watch out for:
 
-<img src="https://github.com/SeascapeScience/Rbigelow/blob/master/Tutorials/Colby2018/Lab1/BadFigure.png" width="500">
+<img src="https://github.com/SeascapeScience/Rbigelow/blob/master/Tutorials/Colby2019/Lab01/BadFigure.png" width="500">
 
 Problems: 	
  - Axes are not labeled.
@@ -152,7 +152,7 @@ This is a step-by step quick reference for loading in data and making a basic pl
    ggsave('ExampleFigure-ggsave.png')
    ```
    
-<img src="https://github.com/nmayot/Rbigelow/blob/nico-updates/Tutorials/Colby2019/Lab1/ExampleFigure-ggsave.png" width="350" height="350">
+<img src="https://github.com/SeascapeScience/Rbigelow/blob/master/Tutorials/Colby2019/Lab01/ExampleFigure-ggsave.png" width="350" height="350">
 
 ### ASSIGNMENT (in lab)
 
@@ -168,11 +168,11 @@ This is a step-by step quick reference for loading in data and making a basic pl
    
    Experiment with some of the ggplot functions to improve the quality and make as high a quality figure as you can. The "ascent" and "descent" profile need to be in two different colors. For this, you have to use at least: `geom_line()` and `coord_flip()`.
 
-   Write an R script that loads in the data file, plots the profile (as a high quality figure), and saves the figure as a file. **Email the R script and the image file at the end of the lab.**
+   Write an R script that loads in the data file, plots the profile (as a high quality figure), and saves the figure as a file. **Email the R script and the image file at the end of the lab. (nmayot@bigelow.org)**
 
-2.  Use the R script you wrote for question 1 and make minor modifications to plot profiles of the other parameters in this dataset. We will discuss the features of the profiles together. **Email the images from all profiles at the end of lab.**
+2.  Use the R script you wrote for question 1 and make minor modifications to plot profiles of the other parameters in this dataset. We will discuss the features of the profiles together. **Email the images from all profiles at the end of lab. (nmayot@bigelow.org)**
 
 
 ### DISCUSSION (altogether in lab)
 
-Let's use the [Tuva Tools](https://tuvalabs.com/upload/d/6d6f9a7d9a2d49e9b504ea20a3fbd16e/).
+Let's use the [Tuva Tools](https://tuvalabs.com/nmayot/datasets/6d6f9a7d9a2d49e9b504ea20a3fbd16e/).
