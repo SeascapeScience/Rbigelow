@@ -275,8 +275,8 @@ We used the function `subset()` in order to keep only the rows that have not mis
       
         iii. What ocean process(es) might produce this relationship?
       
-    b) Repeat (a) for two more pairs of variables. 
+    b) Repeat (a) for another pair of variables. 
       
 2. Try plotting two more T-S diagrams, each with a different variable represented by the color of the points. Write a couple of sentences describing what these plots tell you about the different waters sampled on the cruises.
 
-**Email me (nmayot@bigelow.org) your assignment, including the scripts and figures you made. DUE:mm/dd/yyyy**
+**Email me (nmayot@bigelow.org) your assignment, including the scripts and figures you made. DUE:9/13/2019**
