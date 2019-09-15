@@ -14,7 +14,7 @@ In this section, we are going to visualize how parameters vary at each station f
 We are going to look at some of the discrete data, taken from the Niskin bottles. To do this, we need to create another csv file from the Colby_cruise_data_2012-2017.xlsx sheet like last week. But let's start by setting our working directory.
 
 ```{r}
-setwd('C:/Users/nmayot/Documents/PostDoc/teaching supervise/Colby 2019/Rbigelow/Tutorials/Colby2019/Lab3')
+setwd('C:/Users/nmayot/Documents/PostDoc/teaching supervise/Colby 2019/Rbigelow/Tutorials/Colby2019/Lab03')
 ```
 
 ### Creating discrete data csv file
@@ -275,7 +275,5 @@ In oceanography, many researchers are using the Ocean Data View ([ODV](https://o
 # Assignment (in lab)
 
 1.  a. Plot a contour plot for different discrete variables. Can you figure out how to change the color scheme? 
-    b. Try plotting a station-by-depth contour plot for 1 cruise (instead of station-by-cruise)
-    c. Try plotting a depth-by-cruise contour plot for 1 station.
-    d. Try plotting a contour plot of your choice for a different cruise.
+    b. Plot a contour plot for different depths.
 2. Plot an oceanographic section for different variables from the CTD casts.
