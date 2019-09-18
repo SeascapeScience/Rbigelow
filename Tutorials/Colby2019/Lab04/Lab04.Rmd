@@ -12,7 +12,7 @@ Today, we are going to create plots of depth vs time for a given year and statio
 Let's start by importing the data as before.
 
 ```{r}
-setwd('C:/Users/nmayot/Documents/PostDoc/teaching supervise/Colby 2019/Rbigelow/Tutorials/Colby2019/Lab4')
+setwd('C:/Users/nmayot/Documents/PostDoc/teaching supervise/Colby 2019/Rbigelow/Tutorials/Colby2019/Lab04')
 
 # read in the whole csv file
 CTDdata <- read.csv('Colby_cruise_data_2012-2017.csv')
@@ -86,9 +86,10 @@ for (j in seq_along(alljday)){
 
 We have manipulated our data into a form where we can now plot it. We are going to use the same plotting function as we used yesterday for doing the section plots.
 
-```{r}
+```{r, fig.height = 3, fig.width=5}
 library("ggplot2")
 library("akima")
+library("directlabels")
 
 # Create the data frame
 tem <- as.vector(TEM) # Temperature
@@ -113,10 +114,12 @@ CTD.li <- as.data.frame(CTD.li)
 # 2D plot
 ggplot() +
   geom_tile(data = CTD.li, aes(x=JulianDay, y=Depth, fill=Temperature)) +
-  geom_contour(data = CTD.li, aes(x=JulianDay, y=Depth, z = Temperature),color="white") +
+  geom_contour(data = CTD.li, aes(x=JulianDay, y=Depth, z=Temperature), breaks=8:18, color="white") +
   geom_point(data = subset(CTD, !is.na(Temperature)), aes(x=JulianDay, y=Depth),color="black") +
+  geom_dl(data = CTD.li, aes(x=JulianDay, y=Depth, z=Temperature, label=..level..), method=list(cex = .65, "angled.boxes"), stat="contour") +
   scale_y_reverse() + scale_fill_continuous(limits=c(8,18)) +
   labs(y="Depth (m)", fill="Temperature (deg C)", title ="Station 4, 2016")
+
 ```
 
 ## B2. Coding technique: Functions
@@ -188,12 +191,15 @@ col2matrix_yr_st <- function(dataset,yr,st,colName){
 }
 ```
 ```{r}
-sectionPlot <- function(x,z,zLims,figName,clbName){
+sectionPlot <- function(x,z,zLims,zbreaks,figName,clbName){
   # DESCRIPTION OF ARGUMENTS:
   # -----  x = x-variable, z = variable to plot in color,
   # -----  zLims = limits of the colorscale,
   # -----  title = title to give the figure
   # -----  colName = label for the colorbar  
+  require("akima")
+  require("ggplot2")
+  require("directlabels")
   
   # Create the data frame
   xvar <- as.vector(t(matrix(x,ncol=100,nrow=length(x))))  # Station number
@@ -217,11 +223,12 @@ sectionPlot <- function(x,z,zLims,figName,clbName){
   
   # 2D plot
   p <- ggplot() +
-        geom_tile(data = CTD.li, aes(x=JulianDay, y=Depth, fill=variable)) +
-        geom_contour(data = CTD.li, aes(x=JulianDay, y=Depth, z = variable),color="white") +
-        geom_point(data = subset(CTD, !is.na(Zvalue)), aes(x=JulianDay, y=Depth),color="black") +
-        scale_y_reverse() + scale_fill_continuous(limits=zLims) +
-        labs(y="Depth (m)", fill=clbName, title = figName)
+    geom_tile(data = CTD.li, aes(x=JulianDay, y=Depth, fill=variable)) +
+    geom_contour(data = CTD.li, aes(x=JulianDay, y=Depth, z=variable), breaks=zbreaks, color="white") +
+    geom_point(data = subset(CTD, !is.na(Zvalue)), aes(x=JulianDay, y=Depth),color="black") +
+    geom_dl(data = CTD.li, aes(x=JulianDay, y=Depth, z=variable, label=..level..), breaks=zbreaks, method=list(cex = .65, "angled.boxes"), stat="contour") +
+    scale_y_reverse() + scale_fill_continuous(limits=zLims) +
+    labs(y="Depth (m)", fill=clbName, title = figName)
   
   return(p)
 }
@@ -229,24 +236,53 @@ sectionPlot <- function(x,z,zLims,figName,clbName){
 
 Let's try our functions for a different year:
 
-```{r}
+```{r, fig.height = 3, fig.width=5}
 output <- col2matrix_yr_st(dataset = CTDdata, yr = 2017, st = 4, colName = "Temperature")
-T2017st4 <- sectionPlot(output$alljday, output$mat, c(8,18), "Station 4, 2017", "Temperature (deg C)")
+T2017st4 <- sectionPlot(output$alljday, output$mat, c(7,18), seq(7,18,1), "Station 4, 2017", "Temperature (deg C)")
 T2017st4
 ```
 
 What about a plot for all the stations in 2016:
-```{r, fig.width=15, warning=FALSE}
+```{r, fig.width=15, fig.height=7.5, warning=FALSE}
 library(gridExtra)
 
 yyyy <- 2016
 for (i in 1:4){
   output <- col2matrix_yr_st(CTDdata, yyyy, i, "Temperature")
-  p <- sectionPlot(output$alljday, output$mat, c(8,18), 
+  p <- sectionPlot(output$alljday, output$mat, c(8,18), seq(8,18,1), 
               paste("Station ",i,", ",yyyy, sep=""), "Temperature (deg C)")
   eval(parse(text=paste("p",i,"<- p",sep="")))
 }
 grid.arrange(p1,p2,p3,p4, ncol=2)
+```
+
+Save the figure using `ggsave()`:
+```{r, warning=FALSE}
+g <- arrangeGrob(p1,p2,p3,p4, ncol=2)
+ggsave("2D_Timeseries_Temperature.png", plot=g, width=15, height=5)
+```
+
+## B1. Temporal changes over a year with discrete data
+we are going to create a plot of chlorophyll concentration vs time for a given year and depth, at all sampled stations. For this we are going to use `geom_point()` and `geom_path` functions.
+
+Let's start by importing the data.
+
+```{r}
+# read in the csv file
+discreteDATA <- read.csv('Colby_discrete_data_2015-2016.csv')
+
+# Which variables are available?
+str(discreteDATA) 
+```
+
+We can use the julian day variable to plot timeseries. For this plot, we will focus on the surface layer (2m) and the year 2015. Every sampled station needs to have its own color. Variable units are available in the file: discrete_metadata_units.xlsx
+
+```{r, fig.height = 3, fig.width=5, warning=FALSE}
+# Timeseries for the year 2015 at 2m
+ggplot(subset(discreteDATA, Depth == 2 & year == 2015)) +
+  geom_point(aes(x=jday,y=Chl_Total,color = factor(Station))) +
+  geom_path(aes(x=jday,y=Chl_Total,color = factor(Station))) +
+  labs(y="Total [Chl] (ug/L)", x="Julian Day", color="Station")
 ```
 
 # Assignment
@@ -256,10 +292,9 @@ We will assign you each a discrete variable (from the bottle data) and one conti
 For your assigned variables & year:
 
 1. Plot
-    1. A contour plot (depth vs station) of the discrete variable *for each cruise*
-    2. A section plot (depth vs station) of the continuous variable *for each cruise*
-    3. A temporal change plot (depth vs day of year) of the discrete variable *for station 4*
-    4. A temporal change plot (depth vs day of year) of the continuous variable *for station 4*
+    1. A timeseries plot of the discrete variable (i.e., discrete variable vs day of year) **for the surface layer (2m) at all stations**. 
+    2. A section plot of the continuous variable (depth vs station) **for the 2^nd^ and 5^th^ cruises of the year (Lab03)**
+    4. A temporal change plot of the continuous variable (depth vs day of year) **for station 4**
     
 2. Write a couple of paragraphs of a results + discussion section of a paper. This should cover the following:
     1. How do the variables change with respect to space (vertically/horizontally) and time?
@@ -267,4 +302,4 @@ For your assigned variables & year:
     3. What ocean processes underly these changes?
 
 
-### Due XXX XXth at XXpm. Email your write-up and figures (nmayot@bigelow.org)
+### Due 9/21/2019. Email your write-up and figures (nmayot@bigelow.org)
