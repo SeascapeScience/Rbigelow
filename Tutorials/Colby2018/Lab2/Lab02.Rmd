@@ -7,7 +7,7 @@ This lab focuses on statistics and data visualization, with the aim of using CTD
 
 # 1. Importing Data
 
-Last week, we used a csv file that was ready to import into R. More often than not, you'll have to wrangle your data into a form that is readable by R. Today, we'll take a step backwards from where we started last week, and start by creating the csv file to import into R.
+Last class, we used a csv file that was ready to import into R. More often than not, you'll have to wrangle your data into a form that is readable by R. Today, we'll take a step backwards from where we started last week, and start by creating the csv file to import into R.
 
 1. Open Colby_cruise_data_2012-2017.xlsx
 2. Go to the "CTD all years" sheet
@@ -242,16 +242,19 @@ TSdiagram(DATA[["Temperature"]],DATA[["Salinity"]],DATA[['Fluorescence']],'Fluor
 
 # 4. Assignment
 
-1. Explore the relationship between two other variables (perhaps plotting the logarithm of a variable will be useful).
-Write a couple of sentences describing the relationship - use the following questions to guide your answer:
+1. a) For the example given in the lab (chlorophyll fluorescence and temperature)
 
-      a) Are the variables correlated? 
+        i. Are the variables correlated? 
 
-      b) How well does a linear regression represent the relationship?
+        ii. How well does a linear regression represent the relationship?
       
-2. Try plotting two more T-S diagrams, each with a different variable represented by the color of the points. Write a couple of sentences describing what these plots tell you about the different waters sampled on the cruises?
+        iii. What ocean process(es) might produce this relationship?
+      
+    b) Repeat (a) for two more pairs of variables. 
+      
+2. Try plotting two more T-S diagrams, each with a different variable represented by the color of the points. Write a couple of sentences describing what these plots tell you about the different waters sampled on the cruises.
 
-**Email me (cmitchell@bigelow.org) your assignment, including the scripts and figures you made.**
+**Email me (cmitchell@bigelow.org) your assignment, including the scripts and figures you made. DUE: Monday 17th at 9pm.**
 
 
 

@@ -1,4 +1,13 @@
 TSdiagram <- function(t,S,colvar,colorlabel,xlim=c(30,38),ylim=c(-5,30),clim=c(0,20)){
+  # FUNCTION ARGUMENT DESCRIPTION:
+  # t = temperature
+  # s = salinity
+  # colvar = variable represented by color of the points
+  # colorlabel = the label to give the colored dots (will appear as the title of the plot)
+  # xlim = limits of the x-axis
+  # ylim = limits of the y-axis
+  # clim = limits of the colorbar
+
   # Libraries needed for this function
   library(marelac)
   library(plot3D)
